@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-red: #FF1A1A;
+    --brand-black: #0A0A0A;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply bg-white text-brand-black dark:bg-brand-black dark:text-white transition-colors duration-500;
+  }
+
+  h1, h2, h3, .font-roman {
+    font-family: 'Cinzel', serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block bg-brand-red text-white px-10 py-4 font-bold tracking-widest uppercase hover:bg-brand-black dark:hover:bg-white dark:hover:text-brand-black transition-all duration-500 rounded-sm;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-6xl font-bold mb-12 tracking-tight;
+  }
+
+  .card {
+    @apply p-8 border border-gray-100 dark:border-zinc-800 hover:border-brand-red dark:hover:border-brand-red transition-all duration-500 bg-white dark:bg-zinc-900 shadow-sm hover:shadow-2xl;
+  }
+
+  .nav-link {
+    @apply hover:text-brand-red transition-colors font-semibold py-2;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
